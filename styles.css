@@ -1,5 +1,5 @@
 body {
-    background-color: #777777;
+    background-color: #D3d3d3;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +7,7 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .controls-and-grid {
@@ -20,24 +21,115 @@ body {
     background-color: #8e8e8e;
     width: 600px;
     height: 600px;
-    flex: 0 0 auto;
+    padding: 0px;
     border-radius: 30px;
+    flex: 0 0 auto;
+    padding: 30px;
     box-shadow: 1px 1px 10px 2px;
+    display: flex;
     flex-wrap: wrap;
 }
 
+.grid-square {
+    flex: 0 0 auto;
+    margin: 0;
+    background-color: white;
+}
 
+.control-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 80px;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    height: 600px;
+    
+}
 
+.control-button {
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 900;
+}
 
-
-
-
-
-
-
+.control-button:hover {
+    box-shadow: 1px 1px 5px 1px;
+    scale: 1.05;
+}
 
 .page-title {
     color: #333333;
-    font-size: 32px;
+    font-size: 80px;
     text-shadow: 0px 1px 1px black;
 }
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 20px; /* Specified height */
+    background: #777777; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 20px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    scale: 1.05;
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background: transparent; /* Green background */
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  ul, li {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .color-picker {
+    height: 150px;
+    width: 150px;
+    background-color: black;
+  }
+
+  .color-picker:hover {
+    scale: 1.05;
+  }
+
+  .slider-value {
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
+  }
