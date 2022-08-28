@@ -11,11 +11,17 @@
     <h1 class="page-title">Pixel-Sketch</h1>
     <div class="controls-and-grid">
         <ul class="control-list">
-            <li><button class="control-button" id="color-picker"></button></li>
-            <li><button class="control-button" id ="monochrome"></button></li>
-            <li><button class="control-button" id="rgb-randomiser"></button></li>
-            <li><button class="control-button" id ="clear"></button></li>
-
+            <li><input type="color" class="color-picker" value="#000000"></button></li>
+            <li><button class="control-button" id ="monochrome">Monochrome</button></li>
+            <li><button class="control-button" id="rgb-randomiser">Random</button></li>
+            <li><button class="control-button" id="eraser">Erase</button></li>
+            <li><button class="control-button" id ="clear">Clear</button></li>
+            <li>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="8" value="1" class="slider" id="myRange" step="1">
+                    <h4 class="slider-value"></h4>
+                </div>
+            </li>
         </ul>
         <div class="grid-container">
 
