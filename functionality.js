@@ -1,5 +1,14 @@
 const gridContainer = document.querySelector(".grid-container");
 let currentColor = document.querySelector(".color-picker").value;
+let mouseDown = false;
+
+window.addEventListener("mousedown", () => {
+    mouseDown = true;
+})
+window.addEventListener("mouseup", () => {
+    mouseDown = false;
+})
+
 
 const gridCreator = (value) => {
     let gridWidth = Math.sqrt(value);
@@ -13,6 +22,18 @@ const gridCreator = (value) => {
         gridSquare.id = `${i}`;
         gridContainer.append(gridSquare);
         gridSquare.addEventListener("mouseover", () => {
+            if (mouseDown == true) {
+                if (rgbBtn.clicked == true) {
+                    currentColor = generateRandomHex();
+                    gridSquare.style.backgroundColor = currentColor;
+                } else {
+                    gridSquare.style.backgroundColor = currentColor;
+                }
+            }
+        })
+
+        gridSquare.addEventListener("mousedown", () => {
+            mouseDown = true;
             if (rgbBtn.clicked == true) {
                 currentColor = generateRandomHex();
                 gridSquare.style.backgroundColor = currentColor;
@@ -146,7 +167,4 @@ window.addEventListener("load", () => {
     monoBtn.style.backgroundColor = "#8e8e8e";
 })
 
-const painter = () => {
-
-}
 
