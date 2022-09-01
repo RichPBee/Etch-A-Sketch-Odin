@@ -34,6 +34,8 @@ body {
     flex: 0 0 auto;
     margin: 0;
     background-color: white;
+    box-sizing: border-box;
+    border: 0.5px dashed lightgray;
 }
 
 .control-list {
