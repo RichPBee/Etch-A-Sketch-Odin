@@ -9,6 +9,22 @@ window.addEventListener("mouseup", () => {
     mouseDown = false;
 })
 
+window.addEventListener('resize', () => { 
+    handleResize();
+})
+
+const handleResize = () => { 
+    const squares = document.querySelectorAll('.grid-square');
+    const gridContainer = document.querySelector('.grid-container');
+    const eleSize = Math.sqrt(squares.length);
+    const gridWidth = gridContainer.offsetWidth - 60;
+    const squareWidth = (gridWidth)/eleSize;
+    squares.forEach((square) => {
+        square.style.width = `${squareWidth}px`;
+        square.style.height = `${squareWidth}px`;
+    })
+}
+
 
 const gridCreator = (value) => {
     let gridWidth = Math.sqrt(value);
@@ -30,9 +46,21 @@ const gridCreator = (value) => {
                     gridSquare.style.backgroundColor = currentColor;
                 }
             }
-        })
+        });
+        
+    handleResize();
 
         gridSquare.addEventListener("mousedown", () => {
+            mouseDown = true;
+            if (rgbBtn.clicked == true) {
+                currentColor = generateRandomHex();
+                gridSquare.style.backgroundColor = currentColor;
+            } else {
+                gridSquare.style.backgroundColor = currentColor;
+            }
+        })
+
+        gridSquare.addEventListener("touchstart", () => { 
             mouseDown = true;
             if (rgbBtn.clicked == true) {
                 currentColor = generateRandomHex();
@@ -50,7 +78,6 @@ const generateRandomHex = () => {
     for (let i = 0; i < 6; i++) {
         randomHex += hexVals.charAt(Math.floor(Math.random() * hexVals.length));
     }
-    console.log(randomHex);
     return randomHex;
 }
 
@@ -98,7 +125,6 @@ document.querySelector(".slider").addEventListener("change", () => {
     const sliderDisplay = document.querySelector(".slider-value");
     clearGrid();
     let gridSquares = gridSize(sliderValue);
-    console.log(gridSquares)
     sliderDisplay.textContent = `${Math.sqrt(gridSquares)} x ${Math.sqrt(gridSquares)}`;
     gridCreator(gridSquares);
 })
