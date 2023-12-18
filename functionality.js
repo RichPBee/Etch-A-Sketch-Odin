@@ -17,7 +17,9 @@ const handleResize = () => {
     const squares = document.querySelectorAll('.grid-square');
     const gridContainer = document.querySelector('.grid-container');
     const eleSize = Math.sqrt(squares.length);
-    const gridWidth = gridContainer.offsetWidth - 60;
+    let padding = 60;
+    if (window.innerWidth <= 360) {padding = 40};
+    const gridWidth = gridContainer.offsetWidth - padding;
     const squareWidth = (gridWidth)/eleSize;
     squares.forEach((square) => {
         square.style.width = `${squareWidth}px`;

@@ -189,7 +189,8 @@ body {
 
   @Media (max-width: 360px) {
     .grid-container {
-      width: 200px;
-      height: 200px;
+      padding: 20px;
+      width: 220px;
+      height: 220px;
     }
   }
