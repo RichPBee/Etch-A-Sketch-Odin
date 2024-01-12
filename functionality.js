@@ -61,16 +61,6 @@ const gridCreator = (value) => {
                 gridSquare.style.backgroundColor = currentColor;
             }
         })
-
-        gridSquare.addEventListener("touchstart", () => { 
-            mouseDown = true;
-            if (rgbBtn.clicked == true) {
-                currentColor = generateRandomHex();
-                gridSquare.style.backgroundColor = currentColor;
-            } else {
-                gridSquare.style.backgroundColor = currentColor;
-            }
-        })
     }
 }
 
